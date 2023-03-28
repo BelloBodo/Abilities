@@ -1,0 +1,4 @@
+name: abilities
+version: '${project.version}'
+main: de.bellobodo.abilities.Abilities
+api-version: 1.19
