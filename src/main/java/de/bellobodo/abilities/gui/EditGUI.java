@@ -10,13 +10,15 @@ import org.bukkit.inventory.meta.ItemMeta;
 
 public class EditGUI {
 
-    private final GUIManager guiManager;
+    final GUIManager guiManager;
 
     Inventory inventory;
 
     String inventoryName;
 
     int level;
+
+    String title;
 
     /**
      * Constructor of the EditGUI
@@ -31,8 +33,19 @@ public class EditGUI {
         this.level = previousLevel;
     }
 
+    public EditGUI(GUIManager guiManager, String inventoryName, int previousLevel, String title) {
+        this.guiManager = guiManager;
+        this.inventoryName = inventoryName;
+        this.level = previousLevel;
+        this.title = title;
+    }
+
     private void buildInventory() {
-        Bukkit.createInventory(null, 27, );
+        if (title != null) {
+            Bukkit.createInventory(null, 27, title);
+        } else {
+            Bukkit.createInventory(null, 27);
+        }
 
         for (int i = 1; i  <= 27; i++) {
             switch (i) {

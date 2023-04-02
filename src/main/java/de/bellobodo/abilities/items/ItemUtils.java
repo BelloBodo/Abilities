@@ -12,6 +12,6 @@ public class ItemUtils {
         if (url == null || url.isEmpty()) return skull;
 
         SkullMeta skullMeta = (SkullMeta) skull.getItemMeta();
-
+        return skull;
     }
 }
