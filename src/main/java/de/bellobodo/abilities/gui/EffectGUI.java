@@ -14,7 +14,7 @@ public class EffectGUI {
     ArrayList<Effects> registeredEffects = new ArrayList<>();
 
     private void setRegisteredEffects() {
-        registeredEffects.add(, Material.FEATHER);
+
     }
 
     private void buildInventory() {

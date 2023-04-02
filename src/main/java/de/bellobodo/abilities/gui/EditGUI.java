@@ -42,9 +42,9 @@ public class EditGUI {
 
     private void buildInventory() {
         if (title != null) {
-            Bukkit.createInventory(null, 27, title);
+            this.inventory = Bukkit.createInventory(null, 27, title);
         } else {
-            Bukkit.createInventory(null, 27);
+            this.inventory = Bukkit.createInventory(null, 27);
         }
 
         for (int i = 1; i  <= 27; i++) {

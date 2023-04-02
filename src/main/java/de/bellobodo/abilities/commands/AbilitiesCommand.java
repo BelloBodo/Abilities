@@ -4,6 +4,7 @@ import de.bellobodo.abilities.Abilities;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
+import org.bukkit.entity.Player;
 
 public class AbilitiesCommand implements CommandExecutor {
 
@@ -15,8 +16,7 @@ public class AbilitiesCommand implements CommandExecutor {
 
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
-
-        instance.getGuiManager().o
+        instance.getGuiManager().openEditGUI((Player) sender);
 
         return true;
     }

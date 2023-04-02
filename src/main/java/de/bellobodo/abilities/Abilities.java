@@ -1,22 +1,19 @@
 package de.bellobodo.abilities;
 
+import de.bellobodo.abilities.commands.AbilitiesCommand;
 import de.bellobodo.abilities.gui.GUIManager;
+import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public final class Abilities extends JavaPlugin {
 
-    private Abilities instance;
-
     private GUIManager guiManager;
 
     @Override
-    public void onLoad() {
-        instance = this;
-    }
-
-    @Override
     public void onEnable() {
-        guiManager = new GUIManager(instance);
+        getCommand("abilities").setExecutor(new AbilitiesCommand(this));
+
+        guiManager = new GUIManager(this);
     }
 
     @Override
