@@ -13,7 +13,8 @@ public class GUIManager {
     }
 
     public void openEditGUI(Player player) {
-        new EditGUI(this,"EDIT", 0).openInventory(player);
+        EditGUI editGUI = new EditGUI(this,"EDIT", 0);
+        editGUI.openInventory(player);
     }
 
     private GUIItems guiItems = new GUIItems();

@@ -18,8 +18,6 @@ public class EditGUI {
 
     int level;
 
-    String title;
-
     /**
      * Constructor of the EditGUI
      *
@@ -33,36 +31,25 @@ public class EditGUI {
         this.level = previousLevel;
     }
 
-    public EditGUI(GUIManager guiManager, String inventoryName, int previousLevel, String title) {
-        this.guiManager = guiManager;
-        this.inventoryName = inventoryName;
-        this.level = previousLevel;
-        this.title = title;
-    }
-
     private void buildInventory() {
-        if (title != null) {
-            this.inventory = Bukkit.createInventory(null, 27, title);
-        } else {
-            this.inventory = Bukkit.createInventory(null, 27);
-        }
+        this.inventory = Bukkit.createInventory(null, 27, inventoryName);
 
         for (int i = 1; i  <= 27; i++) {
             switch (i) {
                 case 13:
-                    inventory.setItem(i,guiManager.getGuiItems().getAddValueItem());
+                    this.inventory.setItem(i,guiManager.getGuiItems().getAddValueItem());
                     break;
                 case 14:
                     updateGetValueItem();
                     break;
                 case 15:
-                    inventory.setItem(i,guiManager.getGuiItems().getRemoveValueItem());
+                    this.inventory.setItem(i,guiManager.getGuiItems().getRemoveValueItem());
                     break;
                 case 27:
-                    inventory.setItem(i,guiManager.getGuiItems().getConfirmValueItem());
+                    this.inventory.setItem(i,guiManager.getGuiItems().getConfirmValueItem());
                     break;
                 default:
-                    inventory.setItem(i,guiManager.getGuiItems().getVoidItem());
+                    this.inventory.setItem(i,guiManager.getGuiItems().getVoidItem());
             }
         }
     }
@@ -79,5 +66,6 @@ public class EditGUI {
 
     public void openInventory(Player player) {
         buildInventory();
+        player.openInventory(this.inventory);
     }
 }
